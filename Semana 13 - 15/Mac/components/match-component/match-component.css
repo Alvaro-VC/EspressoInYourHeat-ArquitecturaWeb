@@ -1,0 +1,230 @@
+.match-container {
+  display: flex;
+  height: 100vh;
+  background-color: #f5f5f5;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Panel lateral */
+.sidebar {
+  width: 300px;
+  background-color: #faebd7;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* user profile */
+.user-profile {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-profile h3 {
+  margin: 10px 0 5px;
+}
+
+.user-profile a {
+  color: #a0522d;
+  text-decoration: underline;
+  cursor: pointer;
+  display: block;
+  margin-top: 5px;
+}
+
+/* lista de chats: ocupa el espacio entre perfil y footer */
+.chat-list {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* items de chat */
+.chat-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.chat-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.chat-details {
+  flex: 1;
+}
+
+.chat-time {
+  font-size: 0.8em;
+  color: #888;
+}
+
+/* Footer de la sidebar (barra de navegación) */
+.sidebar-footer {
+  margin-top: auto;
+  padding-top: 0;
+}
+
+.bottom-nav {
+  background-color: #8b4a1a; /* marrón oscuro barra */
+  border-radius: 12px 12px 0 0;
+  padding: 8px 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  color: #fbe9d5;
+  font-size: 11px;
+  cursor: pointer;
+}
+
+.nav-item:hover {
+  filter: brightness(1.05);
+}
+
+.nav-icon {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.nav-label {
+  white-space: nowrap;
+}
+
+/* Contenido principal */
+.main-content {
+  flex: 1;
+  padding: 40px;
+  position: relative;
+}
+
+.discover-btn {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  background-color: #ffd700;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.profile-card {
+  max-width: 400px;
+  margin: 100px auto 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+  background-color: #fff;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.card-img {
+  width: 100%;
+  height: auto;
+}
+
+.card-info {
+  background-color: rgba(0,0,0,0.7);
+  color: white;
+  padding: 20px;
+}
+
+.card-info h2 {
+  margin: 0;
+  font-size: 1.5em;
+}
+
+.card-info span {
+  font-weight: normal;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+.actions {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.actions .btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  margin: 0 10px;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn.reject {
+  background-color: #ffdada;
+}
+
+.btn.like {
+  background-color: #ffdb58;
+}
+
+/* Estado sin más perfiles */
+.no-profiles {
+  margin-top: 120px;
+  text-align: center;
+  color: #555;
+  font-size: 16px;
+}
+
+
+@keyframes slideOutRight {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px) rotate(10deg);
+    opacity: 0;
+  }
+}
+
+
+@keyframes slideOutLeft {
+  0% {
+    transform: translateX(0) rotate(0deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300px) rotate(-10deg);
+    opacity: 0;
+  }
+}
+
+
+.profile-card.slide-right {
+  animation: slideOutRight 0.4s ease forwards;
+}
+
+.profile-card.slide-left {
+  animation: slideOutLeft 0.4s ease forwards;
+}

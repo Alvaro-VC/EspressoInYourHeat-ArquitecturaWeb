@@ -1,0 +1,264 @@
+/**/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+.topheader {
+  top: 0;
+  position: sticky;
+  background-color: #8b4513;
+  width: 100%;
+  display: flex;
+  z-index: 100;
+}
+.ExpressoInYourHeart {
+  align-items: center;
+  padding: 5px 15px;
+  font-family: rosarivo;
+  font-size: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+.menu-principal {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 50%;
+}
+.menu-principal li {
+  list-style: none;
+}
+.menu-principal li a {
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Andada Pro;
+  color: #ffffff;
+}
+.menu-principal li a:hover {
+  text-decoration: underline;
+  color: #f4c113;
+  cursor: pointer;
+}
+.botones-principales {
+  display: flex;
+  align-items: center;
+  margin: 0px 20px;
+}
+.botones-principales .btn {
+  padding: 10px 25px;
+  margin: 0px 5px;
+  background-color: #f4c113;
+  color: #ffffff;
+  border: none;
+  border-radius: 2px;
+  font-weight: bold;
+  transition: transform 0.3s ease;
+}
+.botones-principales .btn:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.botones-principales .btn a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.seccion-inicio {
+  position: relative;
+  width: 100%;
+  background-color: #f8ecd4;
+}
+.home-topcorner-image {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+.contenido-principal {
+  position: relative;
+  width: 100%;
+  display: flex;
+}
+.contenedor-home-image {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 50%;
+}
+.contenedor-home-image .home-image {
+  width: 100%;
+}
+.texto-principal {
+  width: 50%;
+  padding: 0px 70px;
+  text-align: end;
+  word-spacing: 2px;
+}
+.texto-principal h2 {
+  display: flex;
+  justify-items: flex-end;
+  font-size: 56px;
+  font-family: Andada Pro;
+  font-weight: bold;
+  flex-direction: column;
+}
+.texto-principal h2 .highlight {
+  font-size: 56px;
+  color: #f4c113;
+  font-family: Andada Pro;
+  font-weight: 400;
+}
+.texto-principal .icono {
+  display: inline;
+  vertical-align: baseline;
+  margin: 0px 30px;
+  height: 60px;
+  width: 60px;
+}
+.texto-principal p {
+  font-size: 18px;
+  font-family: rosarivo;
+  color: rgb(0, 0, 0, 0.76);
+  margin-top: 50px;
+}
+.more-info {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+  padding: 25px 0px;
+}
+.btn-more-info {
+  border: none;
+  background-color: #f4b0b0;
+  color: white;
+  font-size: 22px;
+  font-family: Andada Pro;
+  padding: 10px 38px;
+  border-radius: 40px;
+  transition: background-color 0.3s;
+}
+.btn-more-info:hover {
+  background-color: #f4c113;
+  cursor: pointer;
+}
+.downloads {
+  width: 100%;
+  display: flex;
+  z-index: 1;
+}
+.availabledownloads {
+  display: flex;
+  justify-content: space-between;
+  padding: 80px 200px;
+  width: 50%;
+  z-index: 1;
+}
+.btn_download:hover {
+  cursor: pointer;
+}
+.home-bottomcorner-image {
+  position: absolute;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  top: 60%;
+  right: 0;
+  width: 100%;
+  height: auto;
+  z-index: 0.9;
+}
+
+.footer-seccion {
+  width: 100%;
+  background-color: #f8ecd4;
+  color: #939ea4;
+  padding: 40px 0;
+}
+.footer-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+.footer-column h3 {
+  font-size: 20px;
+  font-family: Rosarivo;
+  font-weight: normal;
+}
+.footer-column h3:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.footer-column .complaints {
+  font-size: 28px;
+}
+/* Estilo base del botón */
+.footer-column .btn-subscribe {
+  font-size: 18px;
+  border: none;
+  background-color: #f4b0b0;
+  color: #ffffff;
+  padding: 5px 15px;
+  cursor: pointer;
+  border-radius: 2px;
+  background-image: linear-gradient(
+    -45deg,
+    transparent,
+    rgba(255, 255, 255, 0.45),
+    transparent
+  );
+  background-size: 200%;
+  transition: background-position 0.5s ease;
+}
+.footer-column .btn-subscribe:hover {
+  background-position: 100% 0;
+}
+
+.line-footer {
+  border: 0;
+  height: 3px;
+  background-color: #f4b0b0;
+  margin: 20px 0;
+}
+.bottom-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 200px;
+}
+.bottom-footer ul li a:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.bottom-options {
+  display: flex;
+  justify-content: flex-start;
+  width: 65%;
+}
+.bottom-options ul {
+  list-style: none;
+  display: flex;
+  padding: 0;
+}
+.bottom-footer li {
+  margin-right: 20px;
+}
+.bottom-footer li a {
+  text-decoration: none;
+  color: #939ea4;
+  font-family: Rosarivo;
+}
+.social-network {
+  display: flex;
+}
+.social-network ul {
+  list-style: none;
+  display: flex;
+}
+.social-network li {
+  margin-left: 10px;
+}

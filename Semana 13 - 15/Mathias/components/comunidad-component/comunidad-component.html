@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExpressoInYourHeart</title>
+  <link rel="stylesheet" href="comunidad-component.css" />
+</head>
+<body>
+  <nav class="topheader">
+    <a href="" class="ExpressoInYourHeart"
+    ><img
+    height="60"
+    width="125"
+    src="assets/img/ExpressoInYourHeart.png"
+    alt="logo_ExpressoInYourHeart"
+    />ExpressoInYourHeart</a>
+    <ul class="menu-principal">
+    <li><a [routerLink]="'/'">Inicio</a></li>
+    <li><a [routerLink]="'/nosotros'">Nosotros</a></li>
+    <li><a [routerLink]="'/funciones'">¿Cómo funciona?</a></li>
+    <li><a [routerLink]="'/cafeteriaseventos'">Cafeterías y eventos</a></li>
+    <li><a [routerLink]="'/comunidad'">Comunidad</a></li>
+    </ul>
+    <div class="botones-principales">
+      <button type="button" class="btn" [routerLink]="'/acceder'">
+        <a>Acceder</a>
+      </button>
+      <button type="button" class="btn">Contáctanos</button>
+    </div>
+  </nav>
+  <section class="seccion-comunidad">
+    <div id="comuni">
+      <section class="comunidad-image">
+        <div class="content-comunidad">
+          <p class="comuni-title">
+            Únete y forma parte de una comunidad en crecimiento
+          </p>
+        </div>
+      </section>
+    </div>
+    <section class="benefits-section">
+      <div class="benefit-item">
+       <img src="assets/img/cafecin.png" alt="Coffee icon" class="benefit-icon" />
+        <p>Contamos con más de 50 colaboradores cafeteros y 20,000 usuarios</p>
+      </div>
+      <div class="benefit-item">
+       <img src="assets/img/personin.png" alt="Connections icon" class="benefit-icon" />
+       <p>"Más de 5,000 conexiones genuinas creadas" Conecta con personas que comparten tu pasión por el café y crea vínculos auténticos.</p>
+      </div>
+      <div class="benefit-item">
+       <img src="assets/img/dinerin.png" alt="Benefits icon" class="benefit-icon" />
+       <p>Contamos con beneficios exclusivos para los miembros de nuestra comunidad</p>
+     </div>
+   </section>
+  </section>
+</body>
+<footer class="footer-seccion">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>©2024 Sabores en Red</h3>
+    </div>
+    <div class="footer-column">
+      <h3><span class="complaints">Libro de reclamaciones</span></h3>
+    </div>
+    <div class="footer-column">
+      <button type="button" class="btn-subscribe">Suscríbete!</button>
+    </div>
+  </div>
+  <hr class="line-footer" />
+  <div class="bottom-footer">
+    <div class="bottom-options">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Libro de reclamaciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div class="social-network">
+      <ul>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/linkedin.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/youtube.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/instagram.png"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</html>

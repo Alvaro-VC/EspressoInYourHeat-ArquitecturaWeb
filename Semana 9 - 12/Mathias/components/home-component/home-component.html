@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExpressoInYourHeart</title>
+  <link rel="stylesheet" href="home-component.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rosarivo:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+<nav class="topheader">
+  <a href="" class="ExpressoInYourHeart"
+  ><img
+    height="60"
+    width="125"
+    src="assets/img/ExpressoInYourHeart.png"
+    alt="logo_ExpressoInYourHeart"
+  />ExpressoInYourHeart</a
+  >
+  <ul class="menu-principal">
+    <li><a [routerLink]="'/'">Inicio</a></li>
+    <li><a [routerLink]="'/nosotros'">Nosotros</a></li>
+    <li><a [routerLink]="'/funciones'">¿Cómo funciona?</a></li>
+    <li><a [routerLink]="'/cafeteriaseventos'">Cafeterías y eventos</a></li>
+    <li><a [routerLink]="'/comunidad'">Comunidad</a></li>
+  </ul>
+  <div class="botones-principales">
+    <button type="button" class="btn" [routerLink]="'/acceder'">
+      <a>Acceder</a>
+    </button>
+    <button type="button" class="btn">Contáctanos</button>
+  </div>
+</nav>
+<section class="seccion-inicio">
+  <div id="home">
+    <div class="home-topcorner-image">
+      <img
+        height="170"
+        width="350"
+        src="assets/img/topcorner-image.png"
+        alt="topcorner"
+      />
+    </div>
+    <div class="contenido-principal">
+      <div class="contenedor-home-image">
+        <a class="home-image"
+        ><img
+          height="600"
+          width="900"
+          src="assets/img/home-image.png"
+          alt="Home image"
+        /></a>
+      </div>
+      <div class="texto-principal">
+        <h2>
+          Disfruta una <br />
+          <span class="highlight"
+          >taza de café<img
+            height="45"
+            width="45"
+            src="assets/img/cup_coffee.png"
+            alt="cup_of_coffee"
+            class="icono"
+          />
+              </span>
+          en buena compañía
+        </h2>
+        <p>
+          Conecta con la persona ideal para compartir juntos<br />
+          una auténtica experiencia de café.
+        </p>
+        <div class="more-info">
+          <button type="button" class="btn-more-info">más info</button>
+        </div>
+      </div>
+    </div>
+    <div class="downloads">
+      <div class="availabledownloads">
+        <a href="" class="btn_download"
+        ><img
+          height="45"
+          width="155"
+          src="assets/img/app_store.png"
+          alt="app_store"
+        /></a>
+        <a href="" class="btn_download"
+        ><img
+          src="assets/img/google_play.png"
+          alt="google_store"
+        /></a>
+      </div>
+      <div class="home-bottomcorner-image">
+        <img
+          height="330"
+          width="420"
+          src="assets/img/bottomcorner-image.png"
+          alt="bottomcorner"
+        />
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+<footer class="footer-seccion">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>©2025 Sabores en Red</h3>
+    </div>
+    <div class="footer-column">
+      <h3><span class="complaints">Libro de reclamaciones</span></h3>
+    </div>
+    <div class="footer-column">
+      <button type="button" class="btn-subscribe">Suscríbete!</button>
+    </div>
+  </div>
+  <hr class="line-footer" />
+  <div class="bottom-footer">
+    <div class="bottom-options">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Libro de reclamaciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div class="social-network">
+      <ul>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/linkedin.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/youtube.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/instagram.png"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</html>

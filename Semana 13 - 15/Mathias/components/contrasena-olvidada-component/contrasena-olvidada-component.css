@@ -1,0 +1,68 @@
+body {
+  background-color: #f8ecd4;
+}
+.seccion-cambiar-contraseña {
+  display: flex; /* Divide en dos secciones: formulario e imagen */
+  width: 100%;
+  height: 100vh; /* Ocupa toda la altura de la pantalla */
+}
+.contenido-contraseña {
+  flex: 1; /* El formulario ocupa el 50% del ancho */
+  padding: 60px; /* Añade espacio interno */
+  display: flex;
+  flex-direction: column; /* Organiza en columna */
+  justify-content: left; /* Centra verticalmente */
+  margin-top: 30px;
+}
+
+.form-list1 input {
+  padding: 10px;
+  border-radius: 15px;
+  background-color: #f4b0b0;
+  border: none;
+  height: 30px;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.form-list1 label {
+  padding-bottom: 5px;
+}
+.ContainerFormOlvidar h1 {
+  font-family: Andada Pro;
+  font-size: 40px;
+  padding: 2px;
+  letter-spacing: 0.2em;
+}
+.ContainerFormOlvidar p {
+  font-family: Andada Pro;
+
+  padding-left: 8px;
+  padding-bottom: 7px;
+}
+.form-list1 {
+  list-style: none;
+  padding: 10px;
+}
+
+.form-list1 li {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-right: 60%;
+}
+.contraseña-olvidada {
+  border-radius: 15px;
+  border: 5px solid #f4b0b0;
+  background-color: #f8ecd4;
+  cursor: pointer;
+  height: auto;
+  width: 23%;
+  padding: 8px;
+  font-family: Andada-Pro;
+  font-size: 15px;
+  box-shadow: 0px 6px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.contraseña-olvidada:hover {
+  background-color: #f4b0b0;
+  color: white;
+}

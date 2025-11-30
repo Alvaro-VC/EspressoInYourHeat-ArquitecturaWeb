@@ -1,0 +1,229 @@
+<div class="chat-page">
+  <!-- Panel izquierdo -->
+  <aside class="sidebar">
+    <!-- Perfil -->
+    <section class="profile-card">
+      <div class="profile-avatar-wrapper">
+        <img
+          class="profile-avatar"
+          [src]="currentUser.avatarUrl"
+          alt=""
+        />
+      </div>
+
+      <div class="profile-info">
+        <h2 class="profile-name">
+          {{ currentUser.name }}
+        </h2>
+        <button
+          type="button"
+          class="edit-profile-btn"
+          (click)="onEditarPerfil()"
+        >
+          Editar perfil
+        </button>
+      </div>
+    </section>
+
+    <!-- Nuevas conexiones -->
+    <section class="panel-section">
+      <h3 class="section-title">Nuevas conexiones</h3>
+      <div class="new-connections-row">
+        <div class="coffee-icon" aria-hidden="true">☕</div>
+        <div class="connections-avatars">
+          <button
+            type="button"
+            class="connection-avatar"
+            *ngFor="let conn of newConnections"
+          >
+            <img [src]="conn.avatarUrl" alt="Nueva conexión" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Chats recientes -->
+    <section class="panel-section recent-chats">
+      <h3 class="section-title">Chats recientes</h3>
+
+      <ul class="chat-list">
+        <li
+          *ngFor="let chat of recentChats"
+          class="chat-list-item"
+          (click)="openChat(chat)"
+        >
+          <div class="chat-list-row">
+            <div class="chat-list-left">
+              <img
+                class="chat-avatar"
+                [src]="chat.avatarUrl"
+                [alt]="'Foto de ' + chat.name"
+              />
+              <div class="chat-metadata">
+                <div class="chat-name">{{ chat.name }}</div>
+                <div class="chat-last-message">
+                  {{ chat.lastMessage }}
+                </div>
+              </div>
+            </div>
+            <div class="chat-time">
+              {{ chat.time }}
+            </div>
+          </div>
+          <div class="chat-divider"></div>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Navegación inferior -->
+    <footer class="sidebar-footer">
+      <nav class="bottom-nav">
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onRegresar()"
+        >
+          <img
+            src="assets/img/nav-back.png"
+            alt="Regresar"
+            class="nav-icon"
+          />
+          <span class="nav-label">Regresar</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onHome()"
+        >
+          <img
+            src="assets/img/nav-home.png"
+            alt="Home"
+            class="nav-icon"
+          />
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onDescubrirMas()"
+        >
+          <img
+            src="assets/img/corazonmatche.png"
+            alt="Descubrir más"
+            class="nav-icon"
+          />
+          <span class="nav-label">Descubrir más</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onVerCafeterias()"
+        >
+          <img
+            src="assets/img/nav-cafeteria.png"
+            alt="Ver cafeterías"
+            class="nav-icon"
+          />
+          <span class="nav-label">Ver cafeterías</span>
+        </button>
+      </nav>
+    </footer>
+  </aside>
+
+  <!-- Panel derecho: conversación -->
+  <section class="conversation">
+    <!-- Encabezado del chat -->
+    <header class="conversation-header">
+      <ng-container *ngIf="activeContact; else headerEmpty">
+        <div class="conversation-header-top">
+          <h1 class="contact-name">
+            {{ activeContact?.name }}
+          </h1>
+        </div>
+        <p class="contact-subtitle" *ngIf="activeContact?.subtitle">
+          "{{ activeContact?.subtitle }}"
+        </p>
+      </ng-container>
+
+      <ng-template #headerEmpty>
+        <div class="conversation-header-empty">
+          <p>Selecciona un chat reciente para empezar a conversar.</p>
+        </div>
+      </ng-template>
+    </header>
+
+    <!-- Mensajes -->
+    <main
+      class="messages-container"
+      *ngIf="activeContact; else emptyMessages"
+    >
+      <div
+        *ngFor="let message of messages"
+        class="message-row"
+        [ngClass]="{
+          'from-me': message.from === 'me',
+          'from-them': message.from === 'them'
+        }"
+      >
+        <div class="message-inner">
+          <img
+            class="message-avatar"
+            [src]="
+              message.from === 'me'
+                ? currentUser.avatarUrl
+                : activeContact?.avatarUrl || ''
+            "
+            [alt]="
+              message.from === 'me'
+                ? 'Avatar de ' + currentUser.name
+                : 'Avatar de ' + (activeContact?.name ?? '')
+            "
+          />
+          <div class="message-bubble">
+            {{ message.text }}
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <ng-template #emptyMessages>
+      <div class="messages-container empty-state">
+        <p>Elige un contacto en “Chats recientes” para ver su conversación.</p>
+      </div>
+    </ng-template>
+
+    <!-- Input de mensaje -->
+    <section class="composer">
+      <form class="composer-form" (ngSubmit)="sendMessage()">
+        <input
+          type="text"
+          class="composer-input"
+          placeholder="Escribe un mensaje"
+          [(ngModel)]="draftMessage"
+          name="draftMessage"
+          [disabled]="!activeContact"
+        />
+        <button
+          type="submit"
+          class="send-btn"
+          aria-label="Enviar mensaje"
+          [disabled]="!activeContact"
+        >
+          <span class="send-icon"></span>
+        </button>
+      </form>
+
+      <div class="composer-actions">
+        <button type="button" class="action-btn" aria-label="Enviar video">
+          🎥
+        </button>
+        <button type="button" class="action-btn" aria-label="Enviar archivo">
+          🗂
+        </button>
+      </div>
+    </section>
+  </section>
+</div>

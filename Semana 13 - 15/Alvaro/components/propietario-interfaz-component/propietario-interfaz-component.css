@@ -1,0 +1,185 @@
+.container {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: 28%;
+  min-width: 300px;
+  max-width: 380px;
+  background-color: #f1e0c8;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.profile {
+  display: flex;
+  align-items: center;
+  background-color: #8b4a1b;
+  padding: 15px;
+  margin: 0 -20px;
+}
+
+.profile img {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.rol {
+  color: #fff;
+  font-size: 0.9em;
+  text-decoration: underline;
+}
+
+.accordion-title {
+  font-size: 1.1em;
+  margin-top: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.accordion-content {
+  padding-left: 10px;
+}
+
+.mostrarCafetería a {
+  color: #8b4a1b;
+  font-weight: bold;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.new-event a {
+  color: #8b4a1b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-item {
+  cursor: pointer;
+  padding: 5px 0;
+}
+
+.filter-item:hover h3 {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  background-color: #fbf8f4;
+  padding: 40px 60px;
+  box-sizing: border-box;
+}
+
+.cafeterias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 35px 40px;
+
+  max-width: 900px;        /* ⭐ Exacto como el mockup */
+  margin: 20px auto 0 auto; /* ⭐ Centrado perfecto */
+  justify-items: center;    /* ⭐ Alineación perfecta */
+}
+
+.card {
+  width: 260px;
+  height: 330px;
+  background: #ffffff;
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+}
+
+.card .info {
+  padding: 10px 15px;
+}
+
+.card h3 {
+  font-size: 1.2em;
+  margin: 0;
+  font-weight: 700;
+}
+
+.card p {
+  margin: 5px 0 0;
+  font-size: 0.9em;
+  color: #555;
+}
+
+.new-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #d9d9d9;
+}
+
+.new-card p {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #333;
+}
+
+.new-card .btn {
+  margin-top: 10px;
+  font-size: 2em;
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.filtro-panel h1 {
+  font-size: 26px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.form-row {
+  display: flex;
+  gap: 40px;
+  margin-bottom: 25px;
+}
+
+.form-row input,
+.filtro-panel input {
+  width: 260px;
+  padding: 10px 15px;
+  border-radius: 20px;
+  border: 1px solid #f5b5b5;
+  background: #ffc9c9;
+  margin-bottom: 15px;
+}
+
+.btnBuscar {
+  margin-top: 5px;
+  padding: 10px 30px;
+  border-radius: 20px;
+  border: 1px solid #f1bcbc;
+  background: #fff0ee;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.result-box {
+  margin-top: 30px;
+  background: #d9d9d9;
+  height: 300px;
+  border-radius: 20px;
+  padding: 20px;
+}

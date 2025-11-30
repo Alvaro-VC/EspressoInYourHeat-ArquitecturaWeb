@@ -1,0 +1,215 @@
+/* src/app/componentes/editar-perfil-component/editar-perfil-component.css */
+
+:host {
+  display: block;
+}
+
+/* ====== PAGE WRAPPER (fondo + centrado vertical) ====== */
+
+.edit-profile-page {
+  min-height: 100vh;
+  background-color: #d9cbb9; /* beige */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* empuja el footer hacia abajo */
+  padding: 32px 40px 28px;
+  box-sizing: border-box;
+}
+
+/* CONTENEDOR PRINCIPAL: centrado y con ancho máximo */
+
+.edit-profile-container {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  max-width: 1100px;   /* 👈 limita ancho */
+  width: 100%;
+  margin: 0 auto 32px; /* centrado horizontal + separación con el footer */
+}
+
+/* ================== COLUMNA IZQUIERDA (FORM) ================== */
+
+.edit-profile-form-column {
+  flex: 1.5;
+}
+
+.edit-header-bar {
+  background-color: #9b4b1b; /* marrón */
+  color: #ffffff;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 10px 18px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 12px;
+}
+
+.helper-text {
+  margin: 0 0 16px;
+  font-size: 14px;
+  color: #3c2a21;
+}
+
+/* El formulario ya no ocupa todo el ancho, solo hasta 560px aprox */
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 560px;  /* 👈 campos más angostos */
+}
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-field label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #3c2a21;
+}
+
+.form-field input,
+.form-field textarea {
+  width: 100%;               /* ocupa el ancho de .profile-form */
+  padding: 8px 14px;
+  border-radius: 22px;
+  border: 2px solid #3b2a22;
+  background-color: #e8ddcf;
+  outline: none;
+  font-size: 14px;
+  box-shadow: 0 0 0 1px #3b2a22;
+}
+
+.form-field textarea {
+  border-radius: 18px;
+  resize: vertical;
+  min-height: 80px;
+}
+
+/* estado inválido (simple visual) */
+.form-field input.invalid,
+.form-field textarea.invalid {
+  border-color: #c0392b;
+  box-shadow: 0 0 0 1px #c0392b;
+}
+
+.next-edit-note {
+  margin: 6px 0 10px;
+  font-size: 13px;
+  color: #5f4f42;
+}
+
+.save-btn {
+  align-self: flex-start;
+  padding: 10px 24px;
+  border-radius: 4px;
+  border: none;
+  background-color: #9b4b1b;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* ================== COLUMNA DERECHA (PREVIEW) ================== */
+
+.profile-preview-column {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.preview-card {
+  padding: 20px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-photo-frame {
+  border: 3px solid #000000;
+  padding: 18px;
+  width: 260px;
+  height: 260px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.preview-photo-circle-wrapper {
+  width: 200px;
+  height: 200px;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.preview-photo-circle {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.preview-info {
+  margin-top: 18px;
+  text-align: left;
+  align-self: flex-start;
+}
+
+.preview-name {
+  margin: 0 0 6px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3c2a21;
+}
+
+.preview-detail {
+  margin: 0;
+  font-size: 16px;
+  color: #3c2a21;
+}
+
+/* ================== BOTTOM NAV ================== */
+
+.edit-profile-footer {
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-nav {
+  width: 100%;
+  max-width: 520px;
+  background-color: #f4ecdf;
+  border-radius: 24px;
+  border: 3px solid #233157; /* azul oscuro del borde */
+  padding: 10px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  color: #3c2a21;
+  font-size: 11px;
+}
+
+.nav-item:hover {
+  filter: brightness(1.05);
+}
+
+.nav-icon {
+  width: 30px;
+}

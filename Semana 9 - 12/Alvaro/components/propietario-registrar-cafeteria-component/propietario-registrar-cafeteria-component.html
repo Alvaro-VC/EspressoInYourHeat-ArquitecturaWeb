@@ -1,0 +1,33 @@
+<div class="container">
+  <div class="form-section">
+
+    <h1>Registrar nueva cafetería</h1>
+    <p class="subtexto">Por favor, llenar todos los campos.</p>
+
+    <form [formGroup]="cafeteriaForm" (ngSubmit)="onSubmit()">
+
+      <label for="nombre">Nombre</label>
+      <input id="nombre" type="text" formControlName="nombre"/>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+
+      <label for="direccion">Dirección</label>
+      <input id="direccion" type="text" formControlName="direccion"/>
+
+      <label for="telefono">Teléfono de contacto</label>
+      <input id="telefono" type="tel" formControlName="telefono"/>
+
+      <label for="horario">Horario de atención</label>
+      <input id="horario" type="text" formControlName="horarioAtencion"/>
+
+      <label for="aforo">Aforo</label>
+      <input id="aforo" type="number" formControlName="aforo"/>
+
+      <button type="submit">Registrar cafetería</button>
+    </form>
+
+  </div>
+
+  <div class="image-section"></div>
+</div>

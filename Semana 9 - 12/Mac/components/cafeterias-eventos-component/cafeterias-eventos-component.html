@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExpressoInYourHeart</title>
+  <link rel="stylesheet" href="cafeterias-eventos-component.css" />
+</head>
+<body>
+<nav class="topheader">
+  <a href="" class="ExpressoInYourHeart"
+  ><img
+    height="60"
+    width="125"
+    src="assets/img/ExpressoInYourHeart.png"
+    alt="logo_ExpressoInYourHeart"
+  />ExpressoInYourHeart</a
+  >
+  <ul class="menu-principal">
+    <li><a [routerLink]="'/'">Inicio</a></li>
+    <li><a [routerLink]="'/nosotros'">Nosotros</a></li>
+    <li><a [routerLink]="'/funciones'">¿Cómo funciona?</a></li>
+    <li><a [routerLink]="'/cafeteriaseventos'">Cafeterías y eventos</a></li>
+    <li><a [routerLink]="'/comunidad'">Comunidad</a></li>
+  </ul>
+  <div class="botones-principales">
+    <button type="button" class="btn" [routerLink]="'/acceder'">
+      <a>Acceder</a>
+    </button>
+    <button type="button" class="btn">Contáctanos</button>
+  </div>
+</nav>
+<section class="seccion-cafeterias">
+  <div class="contenido-cafeteria">
+    <div class="contenedor-img-cafeteria">
+      <img src="assets/img/cafeteria.png" />
+    </div>
+    <div class="texto-cafeteria">
+      <h2>Cafeterías y eventos</h2>
+      <h3>¡Descubre las mejores cafeterías cerca de ti!</h3>
+      <h4>
+        Cada cafetería incluye una breve descripción, fotos y un apartado de
+        eventos donde podrás participar en reuniones locales y catas de
+        café. Además, recibirás notificaciones de eventos especiales, como
+        reuniones de aficionados al café, donde tendrás la oportunidad de
+        conocer a otras personas que frecuentan las mismas cafeterías.
+        Perfecto para compartir una buena taza y hacer nuevas conexiones en
+        un ambiente relajado.
+      </h4>
+    </div>
+  </div>
+</section>
+</body>
+<footer class="footer-seccion">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>©2024 Sabores en Red</h3>
+    </div>
+    <div class="footer-column">
+      <h3><span class="complaints">Libro de reclamaciones</span></h3>
+    </div>
+    <div class="footer-column">
+      <button type="button" class="btn-subscribe">Suscríbete!</button>
+    </div>
+  </div>
+  <hr class="line-footer" />
+  <div class="bottom-footer">
+    <div class="bottom-options">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Libro de reclamaciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div class="social-network">
+      <ul>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/linkedin.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/youtube.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/instagram.png"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</html>

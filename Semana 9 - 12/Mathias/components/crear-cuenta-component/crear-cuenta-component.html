@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Cuenta</title>
+  <link rel="stylesheet" href="crear-cuenta-component.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rosarivo:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+</head>
+  <body>
+    <section class="main-seccion-crear-cuenta">
+      <section class="seccion-crear-cuenta">
+        <mat-tab-group class="custom-tab-group" (selectedIndexChange)="cambiarTipoUsuario($event)">
+          <!-- TAB CONSUMIDOR -->
+          <mat-tab label="Consumidor">
+            <ng-template matTabContent>
+              <mat-card class="contenido-cuenta">
+                <mat-card-content >
+                  <h1>Crear cuenta - Consumidor</h1>
+                  <p>
+                    Escriba su correo y una contraseña (De 8 caracteres como mínimo y debe
+                    contener un caracter especial)
+                  </p>
+                  <form *ngIf="tipoUsuario === 'consumidor'" [formGroup]="crearCuentaConsumidorForm" (ngSubmit)="onSubmitConsumidor()" [ngClass]="{ 'show-errors': submittedConsumidor }">
+                    <div *ngIf="errorMessageUserConst" class="text-red-500">
+                      {{ errorMessageUserConst }}
+                    </div>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Username</mat-label>
+                      <input class="camInput" matInput placeholder="Tu username" formControlName="username" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Nombre</mat-label>
+                      <input class="camInput" [class.invalid]="crearCuentaConsumidorForm.get('name')?.invalid && crearCuentaConsumidorForm.touched" matInput placeholder="Tu nombre" formControlName="name" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Apellido</mat-label>
+                      <input class="camInput" matInput placeholder="Tu apellido" formControlName="apellido" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Correo</mat-label>
+                      <input class="camInput" matInput type="email" formControlName="email" placeholder="tu@correo.com" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Edad</mat-label>
+                      <input class="camInput" type="number" matInput formControlName="edad" placeholder="tu edad" />
+                    </mat-form-field>
+                    <section class="gender-section">
+                      <label class="gender-margin">Sexo:</label>
+                      <mat-radio-group formControlName="sexo">
+                        <mat-radio-button class="gender-margin" value="masculino">Masculino</mat-radio-button>
+                        <mat-radio-button class="gender-margin" value="femenino">Femenino</mat-radio-button>
+                      </mat-radio-group>
+                      <div class="error-msg"
+                           *ngIf="crearCuentaConsumidorForm.get('sexo')?.invalid && crearCuentaConsumidorForm.get('sexo')?.touched">
+                        Debe seleccionar una opción.
+                      </div>
+                    </section>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Contraseña</mat-label>
+                      <input class="camInput" matInput formControlName="password" placeholder="Tu contraseña" />
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" class="button-crear-cuenta" type="submit">
+                      Crear cuenta
+                    </button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </mat-tab>
+          <mat-tab label="Propietario">
+            <ng-template matTabContent>
+              <mat-card class="contenido-cuenta">
+                <mat-card-content >
+                  <h1>Crear cuenta - Propietario</h1>
+                  <h3>Recuerda que debes registrar tu cafeteria una vez logueado</h3>
+                  <p>
+                    Escriba su correo y una contraseña (De 8 caracteres como mínimo y debe
+                    contener un caracter especial)
+                  </p>
+                  <form *ngIf="tipoUsuario === 'propietario'" [formGroup]="crearCuentaPropietarioForm" (ngSubmit)="onSubmitPropietario()" [ngClass]="{ 'show-errors': submittedPropietario }">
+                    <div *ngIf="errorMessageUserProp" class="text-red-500">
+                      {{ errorMessageUserProp }}
+                    </div>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Username</mat-label>
+                      <input class="camInput" matInput placeholder="Tu username" formControlName="username" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Nombre</mat-label>
+                      <input [class.invalid]="crearCuentaPropietarioForm.get('name')?.invalid && crearCuentaPropietarioForm.touched" matInput placeholder="Tu nombre" formControlName="name" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Apellido</mat-label>
+                      <input class="camInput" matInput placeholder="Tu apellido" formControlName="apellido" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Correo</mat-label>
+                      <input class="camInput" matInput type="email" formControlName="email" placeholder="tu@correo.com" />
+                    </mat-form-field>
+                    <mat-form-field appearance="fill" class="campo">
+                      <mat-label>Contraseña</mat-label>
+                      <input class="camInput" matInput formControlName="password" placeholder="Tu contraseña" />
+                    </mat-form-field>
+                    <button mat-raised-button color="primary" class="button-crear-cuenta" type="submit">
+                      Crear cuenta
+                    </button>
+                  </form>
+                </mat-card-content>
+              </mat-card>
+            </ng-template>
+          </mat-tab>
+        </mat-tab-group>
+
+
+      </section>
+      <section class="image-controll">
+        <div class="img_container_contraseña">
+          <img src="assets/img/mesa_cafe.png"  alt="mesa cafe"/>
+        </div>
+      </section>
+
+    </section>
+  </body>
+</html>

@@ -1,0 +1,156 @@
+<div class="match-container">
+
+  <!-- Panel Izquierdo -->
+  <div class="sidebar">
+    <div class="user-profile">
+      <img [src]="currentUser.avatarUrl" alt="Usuario" class="profile-img">
+      <h3>{{ currentUser.name }}</h3>
+      <button
+        type="button"
+        class="edit-profile-btn"
+        (click)="onEditarPerfil()"
+      >
+        Editar perfil
+      </button>
+    </div>
+
+    <!-- LISTA DE CHATS -->
+    <div class="chat-list">
+      <div class="chat-item">
+        <img src="assets/img/luceromatch.jpg" alt="Lucero">
+        <div class="chat-details">
+          <strong>Lucero</strong>
+          <p>Hola</p>
+        </div>
+        <span class="chat-time">12:00</span>
+      </div>
+      <hr>
+
+      <div class="chat-item">
+        <img src="assets/img/marcelomatch.jpg" alt="Marcelo">
+        <div class="chat-details">
+          <strong>Marcelo</strong>
+          <p>¿Cómo te va?</p>
+        </div>
+        <span class="chat-time">13:00</span>
+      </div>
+      <hr>
+
+      <div class="chat-item">
+        <img src="assets/img/fabiana.png" alt="Fabiana">
+        <div class="chat-details">
+          <strong>Fabiana</strong>
+          <p>Hay una cafetería...</p>
+        </div>
+        <span class="chat-time">9:00</span>
+      </div>
+
+      <hr>
+    </div>
+
+    <!-- BARRA DE NAVEGACIÓN ABAJO -->
+    <footer class="sidebar-footer">
+      <nav class="bottom-nav">
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onRegresar()"
+        >
+          <img
+            src="assets/img/nav-back.png"
+            alt="Regresar"
+            class="nav-icon"
+          />
+          <span class="nav-label">Regresar</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onHome()"
+        >
+          <img
+            src="assets/img/nav-home.png"
+            alt="Home"
+            class="nav-icon"
+          />
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onDescubrirMas()"
+        >
+          <img
+            src="assets/img/corazonmatche.png"
+            alt="Descubrir más"
+            class="nav-icon"
+          />
+          <span class="nav-label">Descubrir más</span>
+        </button>
+
+        <button
+          type="button"
+          class="nav-item"
+          (click)="onVerCafeterias()"
+        >
+          <img
+            src="assets/img/nav-cafeteria.png"
+            alt="Ver cafeterías"
+            class="nav-icon"
+          />
+          <span class="nav-label">Ver cafeterías</span>
+        </button>
+      </nav>
+    </footer>
+  </div>
+
+  <!-- Contenido Central -->
+  <div class="main-content">
+    <button class="discover-btn" (click)="onDiscoverClick()">
+      DESCUBRIR
+    </button>
+
+    <!-- Si hay perfil actual, mostramos la tarjeta -->
+    <ng-container *ngIf="currentProfile; else noProfiles">
+
+      <div
+        class="profile-card"
+        [ngClass]="{
+          'slide-right': animationState === 'like',
+          'slide-left': animationState === 'reject'
+        }"
+        (animationend)="onCardAnimationEnd()"
+      >
+        <img
+          [src]="currentProfile.imageUrl"
+          [alt]="currentProfile.name"
+          class="card-img"
+        />
+        <div class="card-info">
+          <h2>
+            {{ currentProfile.name }}
+            <span>{{ currentProfile.age }}</span>
+          </h2>
+          <p>
+            {{ currentProfile.description }}
+          </p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn reject" (click)="onRejectClick()">✖</button>
+        <button class="btn like" (click)="onLikeClick()">💛</button>
+      </div>
+    </ng-container>
+
+    <!-- Si no hay más perfiles -->
+    <ng-template #noProfiles>
+      <div class="no-profiles">
+        <p>No hay más personas para mostrar por ahora ☕</p>
+      </div>
+    </ng-template>
+  </div>
+
+</div>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <link rel="stylesheet" href="acceder-component.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Andada+Pro:ital,wght@0,400..840;1,400..840&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Rosarivo:ital@0;1&display=swap"
+    rel="stylesheet"
+  />
+</head>
+<body>
+<section class="Login-section">
+    <div class="ContainerForm">
+      <mat-card class="contenido-cuenta">
+        <mat-card-content >
+          <img
+            height="84"
+            width="88"
+            src="assets/img/CafeLogo.png"
+            alt="logo_ExpressoInYourHeart"
+          />
+          <h1>Espressoinyourheart</h1>
+          <form [formGroup]="accederCuentaForm" (ngSubmit)="onSubmit()">
+            <mat-form-field appearance="fill" class="campo">
+              <mat-label>Nombre de usuario</mat-label>
+              <input class="camInput" matInput placeholder="Tu usuario" formControlName="username" />
+            </mat-form-field>
+            <mat-form-field appearance="fill" class="campo">
+              <mat-label>Contraseña</mat-label>
+              <input class="camInput" matInput placeholder="Ingresa tu contraseña" formControlName="password" />
+            </mat-form-field>
+
+            <a [routerLink]="'/contrasenaolvidada'" class="forgot-password"
+            >¿Olvidaste tu contraseña?</a
+            >
+
+            <button type="submit" class="login-button" >Iniciar sesión</button>
+
+            <p class="register-link">
+              ¿No tienes cuenta? <a [routerLink]="'/crearcuenta'">Crear cuenta</a>
+            </p>
+            <hr class="raya" />
+            <p>Registrate con</p>
+            <p></p>
+            <div class="social-buttons">
+              <button class="social-button google-button">
+                <img height="17" width="17" src="assets/img/G.png" />Google
+              </button>
+              <button class="social-button facebook-button">
+                <img height="17" width="17" src="assets/img/FB.png" />Facebook
+              </button>
+            </div>
+          </form>
+        </mat-card-content>
+      </mat-card>
+    </div>
+</section>
+</body>
+</html>

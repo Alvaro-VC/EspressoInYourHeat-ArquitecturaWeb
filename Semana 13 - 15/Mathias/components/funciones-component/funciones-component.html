@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ExpressoInYourHeart</title>
+  <link rel="stylesheet" href="funciones-component.css" />
+</head>
+<body>
+<nav class="topheader">
+  <a href="" class="ExpressoInYourHeart"
+  ><img
+    height="60"
+    width="125"
+    src="assets/img/ExpressoInYourHeart.png"
+    alt="logo_ExpressoInYourHeart"
+  />ExpressoInYourHeart</a
+  >
+  <ul class="menu-principal">
+    <li><a [routerLink]="'/'">Inicio</a></li>
+    <li><a [routerLink]="'/nosotros'">Nosotros</a></li>
+    <li><a [routerLink]="'/funciones'">¿Cómo funciona?</a></li>
+    <li><a [routerLink]="'/cafeteriaseventos'">Cafeterías y eventos</a></li>
+    <li><a [routerLink]="'/comunidad'">Comunidad</a></li>
+  </ul>
+  <div class="botones-principales">
+    <button type="button" class="btn" [routerLink]="'/acceder'">
+      <a>Acceder</a>
+    </button>
+    <button type="button" class="btn">Contáctanos</button>
+  </div>
+</nav>
+<section class="seccion-comofunciona">
+  <div class="como-content">
+    <h2>CÓMO FUNCIONA <span class="linea-title"></span></h2>
+    <div class="comofunciona-section">
+      <div class="adn-info">
+        <img src="assets/img/image1.png" alt="Crea tu Perfil de Café" />
+        <h3>Crea tu Perfil de Café</h3>
+        <p>
+          Regístrate y personaliza tu perfil <br />con tus preferencias de
+          café:<br />
+          selecciona tu tipo favorito y cómo<br />
+          te gusta disfrutarlo. La app utilizará <br />esta información para
+          sugerirte<br />
+          personas con gustos similares.
+        </p>
+      </div>
+      <div class="adn-info">
+        <img
+          src="assets/img/image2.png"
+          alt="Conecta con Otros Amantes del Café"
+        />
+        <h3>Conecta con Otros Amantes del Café</h3>
+        <p>
+          Basado en tus preferencias, la app <br />te mostrará perfiles
+          compatibles. <br />
+          Podrás ver sus gustos de café, <br />
+          iniciar una conversación y <br />encontrar a alguien con quien
+          <br />
+          compartir una taza.
+        </p>
+      </div>
+      <div class="adn-info">
+        <img src="assets/img/image3.png" alt="Descubre Cafeterías y Eventos" />
+        <h3>Descubre Cafeterías y Eventos</h3>
+        <p>
+          Explora cafeterías cercanas, <br />te mostrará perfiles
+          compatibles. <br />
+          Podrás ver sus gustos de café, <br />
+          iniciar una conversación y <br />encontrar a alguien con quien
+          <br />
+          compartir una taza.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+</body>
+<footer class="footer-seccion">
+  <div class="footer-container">
+    <div class="footer-column">
+      <h3>©2024 Sabores en Red</h3>
+    </div>
+    <div class="footer-column">
+      <h3><span class="complaints">Libro de reclamaciones</span></h3>
+    </div>
+    <div class="footer-column">
+      <button type="button" class="btn-subscribe">Suscríbete!</button>
+    </div>
+  </div>
+  <hr class="line-footer" />
+  <div class="bottom-footer">
+    <div class="bottom-options">
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Nosotros</a></li>
+        <li><a href="#">Libro de reclamaciones</a></li>
+        <li><a href="#">Política de privacidad</a></li>
+      </ul>
+    </div>
+    <div class="social-network">
+      <ul>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/facebook.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/linkedin.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/twitter.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/youtube.png"
+          /></a>
+        </li>
+        <li>
+          <a href="#" class="icon"
+          ><img height="16" width="17" src="assets/img/instagram.png"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+</html>

@@ -1,0 +1,167 @@
+<!-- src/app/componentes/editar-perfil-component/editar-perfil-component.html -->
+<div class="edit-profile-page">
+  <div class="edit-profile-container">
+    <!-- COLUMNA IZQUIERDA: FORMULARIO -->
+    <section class="edit-profile-form-column">
+      <div class="edit-header-bar">
+        EDITAR PERFIL
+      </div>
+
+      <p class="helper-text">
+        Recuerda llenar todos los campos obligatoriamente y serán validados
+      </p>
+
+      <form
+        class="profile-form"
+        [formGroup]="profileForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <!-- Nombres -->
+        <div class="form-field">
+          <label for="firstName">Nombres</label>
+          <input
+            id="firstName"
+            type="text"
+            formControlName="firstName"
+            [class.invalid]="firstName?.invalid && firstName?.touched"
+          />
+        </div>
+
+        <!-- Apellidos -->
+        <div class="form-field">
+          <label for="lastName">Apellidos</label>
+          <input
+            id="lastName"
+            type="text"
+            formControlName="lastName"
+            [class.invalid]="lastName?.invalid && lastName?.touched"
+          />
+        </div>
+
+        <!-- Correo -->
+        <div class="form-field">
+          <label for="email">Correo</label>
+          <input
+            id="email"
+            type="email"
+            formControlName="email"
+            [class.invalid]="email?.invalid && email?.touched"
+          />
+        </div>
+
+        <!-- Nombre de usuario -->
+        <div class="form-field">
+          <label for="username">Nombre de Usuario</label>
+          <input
+            id="username"
+            type="text"
+            formControlName="username"
+            [class.invalid]="username?.invalid && username?.touched"
+          />
+        </div>
+
+        <!-- Gustos y preferencias -->
+        <div class="form-field">
+          <label for="preferences">Gustos y preferencias</label>
+          <textarea
+            id="preferences"
+            rows="4"
+            formControlName="preferences"
+          ></textarea>
+        </div>
+
+        <p class="next-edit-note">
+          Los cambios son cada cierto tiempo: Prox edición a 30 días
+        </p>
+
+        <button type="submit" class="save-btn">
+          GUARDAR CAMBIOS
+        </button>
+      </form>
+    </section>
+
+    <!-- COLUMNA DERECHA: PREVIEW PERFIL -->
+    <section class="profile-preview-column">
+      <div class="preview-card">
+        <div class="preview-photo-frame">
+          <div class="preview-photo-circle-wrapper">
+            <img
+              class="preview-photo-circle"
+              [src]="profilePreview.avatarUrl"
+              alt="Foto de perfil"
+            />
+          </div>
+        </div>
+
+        <div class="preview-info">
+          <h2 class="preview-name">
+            {{ profilePreview.name }}
+          </h2>
+          <p class="preview-detail">
+            {{ profilePreview.age }} años
+          </p>
+          <p class="preview-detail">
+            {{ profilePreview.city }}
+          </p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- BARRA DE NAVEGACIÓN INFERIOR -->
+  <footer class="edit-profile-footer">
+    <nav class="bottom-nav">
+      <button
+        type="button"
+        class="nav-item"
+        (click)="onRegresar()"
+      >
+        <img
+          src="assets/img/nav-back.png"
+          alt="Regresar"
+          class="nav-icon"
+        />
+        <span class="nav-label">Regresar</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        (click)="onHome()"
+      >
+        <img
+          src="assets/img/nav-home.png"
+          alt="Home"
+          class="nav-icon"
+        />
+        <span class="nav-label">Home</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        (click)="onDescubrirMas()"
+      >
+        <img
+          src="assets/img/corazonmatche.png"
+          alt="Descubrir más"
+          class="nav-icon"
+        />
+        <span class="nav-label">Descubrir más</span>
+      </button>
+
+      <button
+        type="button"
+        class="nav-item"
+        (click)="onVerCafeterias()"
+      >
+        <img
+          src="assets/img/nav-cafeteria.png"
+          alt="Ver cafeterías"
+          class="nav-icon"
+        />
+        <span class="nav-label">Ver cafeterías</span>
+      </button>
+    </nav>
+  </footer>
+</div>

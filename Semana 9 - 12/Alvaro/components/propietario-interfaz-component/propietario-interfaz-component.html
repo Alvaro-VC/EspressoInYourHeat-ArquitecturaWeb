@@ -1,0 +1,192 @@
+<div class="container">
+
+  <aside class="sidebar">
+
+    <div class="profile">
+      <img src="assets/img/FotoPerfil1.jpg" alt="Foto de perfil">
+      <div class="profile-info">
+        <h3>Miguel Pastor Córdova</h3>
+        <p class="rol">Propietario</p>
+      </div>
+    </div>
+
+    <ul class="mostrarCafetería">
+      <li>
+        <h2 class="accordion-title" (click)="mostrarCafeterias()">
+          <a>Mostrar cafeterías</a>
+        </h2>
+      </li>
+    </ul>
+
+    <ul class="new-event">
+      <li>
+        <a [routerLink]="'/propietarioregistrarevento'"> Registrar nuevo evento</a>
+      </li>
+    </ul>
+
+    <h2 class="accordion-title" (click)="toggleEvents()">
+      {{ eventsOpen ? '−' : '+' }} Lista de eventos creados
+    </h2>
+
+    <div *ngIf="eventsOpen" class="accordion-content">
+      <div class="event" *ngFor="let e of eventosList" (click)="editarEvento(e.id)">
+        <h3>{{ e.titulo }} <span>{{ e.fechaInicio }}</span></h3>
+        <p>{{ e.descripcion }}</p>
+      </div>
+      <hr *ngIf="eventosList.length > 0">
+    </div>
+
+    <h2 class="accordion-title" (click)="toggleFilters()">
+      {{ filtersOpen ? '−' : '+' }} Filtros de eventos
+    </h2>
+
+    <div *ngIf="filtersOpen" class="accordion-content">
+
+      <div class="filter-item" (click)="goFilter('fecha-estado')">
+        <h3>Mostrar eventos por fecha y estado</h3>
+        <p>Se mostrarán todos los eventos por una fecha y estado</p>
+      </div><hr>
+
+      <div class="filter-item" (click)="goFilter('rango-fechas')">
+        <h3>Mostrar eventos por rango de fechas</h3>
+        <p>Se mostrarán todos los eventos del rango indicado</p>
+      </div><hr>
+
+      <div class="filter-item" (click)="goFilter('cafeteria')">
+        <h3>Mostrar eventos por cafetería</h3>
+        <p>Eventos organizados por una cafetería específica</p>
+      </div><hr>
+
+      <div class="filter-item" (click)="goFilter('cafeteria-favorita')">
+        <h3>Mostrar consumidores por cafetería favorita</h3>
+        <p>Consumidores que marcaron favorita una cafetería</p>
+      </div>
+
+    </div>
+
+  </aside>
+
+  <main class="main">
+
+    <!-- === CAFETERÍAS === -->
+    <section class="cafeterias" *ngIf="showCafesBlock">
+
+      <div class="card new-card">
+        <p>Registrar nueva cafetería</p>
+        <button class="btn" [routerLink]="'/propietarioregistrarcafeteria'">＋</button>
+      </div>
+
+      <div class="card" *ngFor="let c of cafeterias">
+        <img src="assets/img/cafe_default.png">
+        <div class="info">
+          <h3>{{ c.nombre }}</h3>
+          <p>{{ c.direccion }}</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- === FILTROS === -->
+    <section *ngIf="!showCafesBlock">
+
+      <!-- ⭐ FECHA + ESTADO + CAFETERÍA -->
+      <div class="filtro-panel" *ngIf="filtroActivo === 'fecha-estado'">
+        <h1>Mostrar eventos por fecha y estado</h1>
+
+        <div class="form-row">
+
+          <input type="date"
+                 [formGroup]="formFechaEstado"
+                 formControlName="fecha">
+
+          <input type="text"
+                 placeholder="Estado"
+                 [formGroup]="formFechaEstado"
+                 formControlName="estado">
+
+          <!-- ⭐ Combo corregido -->
+          <select [formGroup]="formFechaEstado" formControlName="cafeteriaId"
+                  style="width:260px; padding:10px 15px; border-radius:20px;
+                  border:1px solid #f5b5b5; background:#ffc9c9;">
+            <option value="">Seleccione una cafetería</option>
+            <option *ngFor="let c of cafeterias" [value]="c.id">
+              {{ c.nombre }}
+            </option>
+          </select>
+
+        </div>
+
+        <button class="btnBuscar" (click)="buscarFechaEstado()">Mostrar eventos</button>
+        <div class="result-box"></div>
+      </div>
+
+      <!-- RANGO FECHAS -->
+      <div class="filtro-panel" *ngIf="filtroActivo === 'rango-fechas'">
+        <h1>Mostrar eventos por rango de fechas</h1>
+
+        <div class="form-row">
+          <input type="date" [formGroup]="formRango" formControlName="inicio">
+          <input type="date" [formGroup]="formRango" formControlName="fin">
+        </div>
+
+        <button class="btnBuscar" (click)="buscarRango()">Mostrar eventos</button>
+        <div class="result-box"></div>
+      </div>
+
+      <!-- POR CAFETERÍA -->
+      <div class="filtro-panel" *ngIf="filtroActivo === 'cafeteria'">
+        <h1>Mostrar eventos por cafetería</h1>
+
+        <select [formGroup]="formCafeteria" formControlName="cafeteriaId"
+                style="width:260px; padding:10px 15px; border-radius:20px;
+                border:1px solid #f5b5b5; background:#ffc9c9;">
+          <option value="">Seleccione una cafetería</option>
+          <option *ngFor="let c of cafeterias" [value]="c.id">
+            {{ c.nombre }}
+          </option>
+        </select>
+
+        <button class="btnBuscar" (click)="buscarCafeteria()">Mostrar eventos</button>
+        <div class="result-box"></div>
+      </div>
+
+      <!-- FAVORITAS -->
+      <div class="filtro-panel" *ngIf="filtroActivo === 'cafeteria-favorita'">
+        <h1>Mostrar consumidores por cafetería favorita</h1>
+
+        <input type="number"
+               placeholder="ID de la cafetería"
+               [formGroup]="formFavorita"
+               formControlName="cafeteriaId">
+
+        <button class="btnBuscar" (click)="buscarFavorita()">Mostrar consumidores</button>
+        <div class="result-box"></div>
+      </div>
+
+      <!-- EDITAR EVENTO -->
+      <div class="filtro-panel" *ngIf="filtroActivo === 'editar'">
+        <h1>Editar evento</h1>
+
+        <form [formGroup]="formEditar">
+          <input type="hidden" formControlName="id">
+
+          <input type="text" placeholder="Título" formControlName="titulo">
+
+          <textarea placeholder="Descripción"
+                    style="width:260px; height:120px; border-radius:20px; padding:15px; background:#ffc9c9; border:1px solid #f5b5b5;"
+                    formControlName="descripcion"></textarea>
+
+          <input type="text" placeholder="Estado" formControlName="estado">
+          <input type="date" formControlName="fechaInicio">
+          <input type="date" formControlName="fechaFin">
+          <input type="number" placeholder="Cantidad participantes" formControlName="cantidadParticipantes">
+
+          <button class="btnBuscar" (click)="actualizarEvento()">Actualizar evento</button>
+        </form>
+      </div>
+
+    </section>
+
+  </main>
+
+</div>

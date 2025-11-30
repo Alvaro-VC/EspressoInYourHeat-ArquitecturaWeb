@@ -1,0 +1,80 @@
+<div class="dashboard-container">
+
+  <aside class="sidebar">
+    <div class="profile">
+      <img src="assets/img/FotoPerfil1.jpg" alt="Propietario" />
+      <div class="info">
+        <h3>Miguel Pastor Córdova</h3>
+        <p class="rol">Propietario</p>
+      </div>
+    </div>
+
+    <h2>Lista de eventos creados</h2>
+    <hr />
+
+    <div class="event">
+      <h3>Cita - Desayuno<span>12:00</span></h3>
+      <p>Encuentro casual por la mañana.</p>
+    </div>
+
+    <hr />
+
+    <div class="event">
+      <h3>Cita - Atardecer <span>13:00</span></h3>
+      <p>Encuentro casual con coincidencia de gustos.</p>
+    </div>
+
+    <hr />
+
+    <div class="event">
+      <h3>Cita - Cena relajante <span>9:00</span></h3>
+      <p>Encuentro con temática relajante y romántica.</p>
+    </div>
+
+    <hr />
+    <p class="new-event">+ Registrar nuevo evento</p>
+  </aside>
+
+  <main class="main-content">
+    <div class="header">
+      <h1>Registrar nuevo evento</h1>
+      <a class="volver" routerLink="/propietariointerfaz">
+        Volver al inicio
+      </a>
+    </div>
+
+    <form [formGroup]="eventoForm" (ngSubmit)="onSubmit()">
+
+      <label for="titulo">Título</label>
+      <input id="titulo" type="text" formControlName="titulo"/>
+
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" formControlName="descripcion"></textarea>
+
+      <label for="estado">Estado</label>
+      <input id="estado" type="text" formControlName="estado"/>
+
+      <!-- ⭐ CORREGIDO: Fecha de inicio con type="date" -->
+      <label for="inicio">Fecha de inicio</label>
+      <input id="inicio" type="date" formControlName="fechaInicio"/>
+
+      <!-- ⭐ CORREGIDO: Fecha de fin con type="date" -->
+      <label for="fin">Fecha de fin</label>
+      <input id="fin" type="date" formControlName="fechaFin"/>
+
+      <label for="participantes">Cantidad de participantes</label>
+      <input id="participantes" type="number" formControlName="cantidadParticipantes"/>
+
+      <!-- ⭐ Combo Box de Cafeterías del Propietario -->
+      <label for="cafeteria">Cafetería</label>
+      <select id="cafeteria" formControlName="cafeteriaId">
+        <option value="">Seleccione una cafetería</option>
+        <option *ngFor="let c of cafeterias" [value]="c.id">
+          {{ c.nombre }}
+        </option>
+      </select>
+
+      <button type="submit">Registrar evento</button>
+    </form>
+  </main>
+</div>
